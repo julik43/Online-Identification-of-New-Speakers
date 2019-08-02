@@ -1,0 +1,45 @@
+
+{
+  "PATHS":{
+    "directory_train":"dataset_train",
+    "directory_valid":"dataset_valid",
+    "directory_test":"dataset_test",
+    "file_train":"train_speakers.txt",
+    "file_valid":"valid_speakers.txt",
+    "file_test":"test_speakers.txt",
+    "path_weights":"",
+    "data_vad_train_start":"",
+    "data_vad_train_end":"",
+    "data_vad_valid_start":"",
+    "data_vad_valid_end":"",
+    "data_vad_test_start":"",
+    "data_vad_test_end":""
+  },
+  "TRAINING": {
+    "batch_size":50,
+    "num_epochs":10,
+    "learning_rate":0.01,
+    "type_opt":"grad",
+    "architecture": "V7",
+    "pool_layers":2,
+    "channels":1,
+    "label":2,
+    "restore_weights":"False"
+
+  },
+  "DATA_GENERATOR":{
+    "data_type":"EmphSpec",
+    "window":1,
+    "sample_rate":16000,
+    "nperseg":0.025,
+    "noverlap":0.015,
+    "nfft":400,
+    "rounds_train":259,
+    "rounds_valid":17,
+    "rounds_test":17,
+    "num_train_files":16,
+    "num_valid_files":8,
+    "num_test_files":8,
+    "n_row_tf_record":1000
+  }
+}

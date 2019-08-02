@@ -1,0 +1,22 @@
+
+{
+  "PATHS":{
+    "database":"database",
+    "path_weights":"VGG11_EmphSpec/2weights.ckpt"
+  },
+  "TRAINING": {
+    "architecture": "VGG11",
+    "pool_layers":5,
+    "channels":1,
+    "label":2,
+    "restore_weights":"True"
+  },
+  "DATA_GENERATOR":{
+    "data_type":"EmphSpec",
+    "window":1,
+    "sample_rate":16000,
+    "nperseg":0.025,
+    "noverlap":0.015,
+    "nfft":400
+  }
+}

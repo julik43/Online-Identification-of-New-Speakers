@@ -1,0 +1,4 @@
+model_checkpoint_path: "2weights.ckpt"
+all_model_checkpoint_paths: "0weights.ckpt"
+all_model_checkpoint_paths: "1weights.ckpt"
+all_model_checkpoint_paths: "2weights.ckpt"
