@@ -38,7 +38,7 @@ python identification_system.py identification_system.json
 
 # 3. Use an identification system with weights given.
 
-Download "2weights.ckpt.data-00000-of-00001" from: and it to VGG11_EmphSpec folder
+Download "2weights.ckpt.data-00000-of-00001" from: and move it to VGG11_EmphSpec folder
 
 Run the identification model like this:
 
