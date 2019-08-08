@@ -2202,6 +2202,8 @@ with tf.Session() as sess:
 	test_writer = tf.summary.FileWriter('graphs/test_'+ NAME_OUTPUT)
 	train_writer.add_graph(sess.graph)
 
+	extra_update_ops = tf.get_collection(tf.GraphKeys.UPDATE_OPS)
+
 	# initialize variables (params)
 	sess.run(init_op)
 	training_handle = sess.run(tf_records_reader.training_iterator.string_handle())
@@ -2240,8 +2242,8 @@ with tf.Session() as sess:
 					# evaluation with train data
 					X1_array, X2_array, Y_array = sess.run(tf_records_reader.train_next_element, feed_dict={tf_records_reader.train_handle: training_handle})
 					feed_dict = {network.X1: X1_array, network.X2: X2_array, network.Y : Y_array, network.training:1}
-					fetches = [optimizer, network.loss, network.accuracy, network.summary ]
-					_,train_loss, train_acc, train_summary = sess.run(fetches, feed_dict=feed_dict)
+					fetches = [optimizer, network.loss, network.accuracy, network.summary, extra_update_ops ]
+					_,train_loss, train_acc, train_summary,_ = sess.run(fetches, feed_dict=feed_dict)
 					train_writer.add_summary(train_summary, step_train)
 
 					acc_train = acc_train + train_acc
